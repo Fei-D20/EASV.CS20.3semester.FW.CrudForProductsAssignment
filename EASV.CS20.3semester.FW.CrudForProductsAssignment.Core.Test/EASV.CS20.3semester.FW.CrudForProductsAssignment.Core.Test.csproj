@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test</RootNamespace>
+    </PropertyGroup>
+
+</Project>
