@@ -5,4 +5,8 @@
         <RootNamespace>EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.csproj" />
+    </ItemGroup>
+
 </Project>

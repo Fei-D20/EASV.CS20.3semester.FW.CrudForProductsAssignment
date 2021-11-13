@@ -62,10 +62,9 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
             
             // Act
             var actual = productService.GetById(1);
-            var expected = product;
-            
+
             // Assert
-            Assert.Equal(expected,actual);
+            Assert.Equal(product,actual);
         }
         
 
@@ -74,7 +73,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
         #region Add Method Test
 
         [Fact]
-        public void IProductService_AddProduct_ReturnNewProduct()
+        public void IProductService_Add_ParameterProduct_ReturnNewProduct()
         {
             // Arrange
             var product = new Product()
@@ -90,23 +89,62 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
             
             // Act
             var actual = productService.Add(product);
-            var expected = product;
-            
+
             // Assert
-            Assert.Equal(expected,actual);
+            Assert.Equal(product,actual);
         }
 
         #endregion
 
         #region Delete Method Test
 
-        
+        [Fact]
+        public void IProductService_Delete_ParameterId_ReturnProduct()
+        {
+            // Arrange
+            var product = new Product()
+            {
+                Id = 1,
+                Name = "Name1"
+            };
+            
+            var mock = new Mock<IProductService>();
+            var productService = mock.Object;
+            mock.Setup(service => service.Delete(1))
+                .Returns(product);
+            
+            // Act
+            var actual = productService.Delete(1);
+            
+            // Assert
+            Assert.Equal(product,actual);
+        }
 
         #endregion
 
         #region Modify Method Test
 
-        
+        [Fact]
+        public void IProductService_Modify_ParameterProduct_ReturnProduct()
+        {
+            // Arrange
+            var product = new Product()
+            {
+                Id = 1,
+                Name = "Name1"
+            };
+
+            var mock = new Mock<IProductService>();
+            var productService = mock.Object;
+            mock.Setup(service => service.Modify(product))
+                .Returns(product);
+            
+            // Act
+            var actual = productService.Modify(product);
+            
+            // Assert
+            Assert.Equal(product,actual);
+        }
 
         #endregion
     }

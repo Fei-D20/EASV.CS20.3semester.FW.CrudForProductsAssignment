@@ -8,5 +8,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IService
         List<Product> GetAll();
         Product GetById(int id);
         Product Add(Product product);
+        Product Delete(int id);
+        Product Modify(Product product);
     }
 }
