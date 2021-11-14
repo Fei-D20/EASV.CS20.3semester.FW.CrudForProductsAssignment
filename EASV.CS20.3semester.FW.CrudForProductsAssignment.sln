@@ -1,16 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CORE", "CORE", "{A1E90CEE-3617-49BE-B5C7-5112C70181A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A1E90CEE-3617-49BE-B5C7-5112C70181A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9A5DA3A9-5FBD-4AE9-A0A7-F618639DABDC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persentation", "Persentation", "{A03C7E97-7C0B-4065-903E-FD23800E6C87}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prezentation", "Prezentation", "{A03C7E97-7C0B-4065-903E-FD23800E6C87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.Core", "EASV.CS20.3semester.FW.CrudForProductsAssignment.Core\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.csproj", "{6C0B112A-2894-4B29-999C-9783980BF57F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain", "EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.csproj", "{0EE5A643-3C9C-4B0E-B9CD-C9F01BBF64E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.Test", "EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.Test\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.Test.csproj", "{7C4EAA99-FA93-4953-B2AE-E26505F9EC27}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D1A70AAA-B724-4874-A48E-E42380E94395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.Test", "EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.Test\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.Test.csproj", "{410C788F-56AC-4C7C-83AB-F61083D6DD61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.Test", "EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.Test\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.Test.csproj", "{CE95387E-6F0F-4523-8036-7863BE8B2682}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseAccess", "DatabaseAccess", "{966B13C3-8EAD-45E5-9258-0AE18522CC79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.Database", "EASV.CS20.3semester.FW.CrudForProductsAssignment.Database\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database.csproj", "{2FFDB0D8-B650-46E6-B6FB-55D57B785E67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20.3semester.FW.CrudForProductsAssignment.WebApi", "EASV.CS20.3semester.FW.CrudForProductsAssignment.WebApi\EASV.CS20.3semester.FW.CrudForProductsAssignment.WebApi.csproj", "{E9B64078-CDF5-4D3A-B132-BA9FECC6ED63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,14 +36,30 @@ Global
 		{0EE5A643-3C9C-4B0E-B9CD-C9F01BBF64E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EE5A643-3C9C-4B0E-B9CD-C9F01BBF64E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EE5A643-3C9C-4B0E-B9CD-C9F01BBF64E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C4EAA99-FA93-4953-B2AE-E26505F9EC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C4EAA99-FA93-4953-B2AE-E26505F9EC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C4EAA99-FA93-4953-B2AE-E26505F9EC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C4EAA99-FA93-4953-B2AE-E26505F9EC27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{410C788F-56AC-4C7C-83AB-F61083D6DD61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410C788F-56AC-4C7C-83AB-F61083D6DD61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410C788F-56AC-4C7C-83AB-F61083D6DD61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410C788F-56AC-4C7C-83AB-F61083D6DD61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE95387E-6F0F-4523-8036-7863BE8B2682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE95387E-6F0F-4523-8036-7863BE8B2682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE95387E-6F0F-4523-8036-7863BE8B2682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE95387E-6F0F-4523-8036-7863BE8B2682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFDB0D8-B650-46E6-B6FB-55D57B785E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFDB0D8-B650-46E6-B6FB-55D57B785E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFDB0D8-B650-46E6-B6FB-55D57B785E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFDB0D8-B650-46E6-B6FB-55D57B785E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9B64078-CDF5-4D3A-B132-BA9FECC6ED63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9B64078-CDF5-4D3A-B132-BA9FECC6ED63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9B64078-CDF5-4D3A-B132-BA9FECC6ED63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9B64078-CDF5-4D3A-B132-BA9FECC6ED63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6C0B112A-2894-4B29-999C-9783980BF57F} = {A1E90CEE-3617-49BE-B5C7-5112C70181A6}
 		{0EE5A643-3C9C-4B0E-B9CD-C9F01BBF64E6} = {A1E90CEE-3617-49BE-B5C7-5112C70181A6}
-		{7C4EAA99-FA93-4953-B2AE-E26505F9EC27} = {A1E90CEE-3617-49BE-B5C7-5112C70181A6}
+		{410C788F-56AC-4C7C-83AB-F61083D6DD61} = {D1A70AAA-B724-4874-A48E-E42380E94395}
+		{CE95387E-6F0F-4523-8036-7863BE8B2682} = {D1A70AAA-B724-4874-A48E-E42380E94395}
+		{966B13C3-8EAD-45E5-9258-0AE18522CC79} = {9A5DA3A9-5FBD-4AE9-A0A7-F618639DABDC}
+		{2FFDB0D8-B650-46E6-B6FB-55D57B785E67} = {966B13C3-8EAD-45E5-9258-0AE18522CC79}
+		{E9B64078-CDF5-4D3A-B132-BA9FECC6ED63} = {A03C7E97-7C0B-4065-903E-FD23800E6C87}
 	EndGlobalSection
 EndGlobal
