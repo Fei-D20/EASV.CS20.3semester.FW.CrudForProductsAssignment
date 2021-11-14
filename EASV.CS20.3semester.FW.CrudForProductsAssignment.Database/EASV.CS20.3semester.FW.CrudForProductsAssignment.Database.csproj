@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>EASV.CS20._3semester.FW.CrudForProductsAssignment.Database</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.csproj" />
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.12" />
+    </ItemGroup>
+
+</Project>
