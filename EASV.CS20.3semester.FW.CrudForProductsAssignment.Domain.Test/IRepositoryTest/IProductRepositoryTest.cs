@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
-using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepository;
+using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
 using Moq;
 using Xunit;
 
@@ -36,11 +36,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.IReposit
                 Id = 1,
                 Name = "Name1"
             };
-            mock.Setup(repository => repository.Create(product))
+            mock.Setup(repository => repository.CreateProduct(product))
                 .Returns(product);
             
             // Act
-            var actual = productRepository.Create(product);
+            var actual = productRepository.CreateProduct(product);
             
             // Assert
             Assert.Equal(product,actual);
@@ -53,11 +53,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.IReposit
             var mock = new Mock<IProductRepository>();
             var productRepository = mock.Object;
             var products = new List<Product>();
-            mock.Setup(repository => repository.ReadAll())
+            mock.Setup(repository => repository.GetProducts())
                 .Returns(products);
             
             // Act
-            var actual = productRepository.ReadAll();
+            var actual = productRepository.GetProducts();
             
             // Assert
             Assert.Equal(products,actual);
@@ -74,11 +74,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.IReposit
                 Id = 1,
                 Name = "Name1"
             };
-            mock.Setup(repository => repository.ReadById(1))
+            mock.Setup(repository => repository.GetProductById(1))
                 .Returns(product);
             
             // Act
-            var actual = productRepository.ReadById(1);
+            var actual = productRepository.GetProductById(1);
             
             // Assert
             Assert.Equal(product,actual);
@@ -95,11 +95,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.IReposit
                 Id = 1,
                 Name = "Name1"
             };
-            mock.Setup(repository => repository.Update(product))
+            mock.Setup(repository => repository.UpdateProduct(product))
                 .Returns(product);
             
             // Act
-            var actual = productRepository.Update(product);
+            var actual = productRepository.UpdateProduct(product);
             
             // Assert
             Assert.Equal(product,actual);
@@ -116,11 +116,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.IReposit
                 Id = 1,
                 Name = "Name1"
             };
-            mock.Setup(repository => repository.Delete(product))
+            mock.Setup(repository => repository.RemoveProduct(product.Id))
                 .Returns(product);
             
             // Act
-            var actual = productRepository.Delete(product);
+            var actual = productRepository.RemoveProduct(product.Id);
             
             // Assert
             Assert.Equal(product,actual);

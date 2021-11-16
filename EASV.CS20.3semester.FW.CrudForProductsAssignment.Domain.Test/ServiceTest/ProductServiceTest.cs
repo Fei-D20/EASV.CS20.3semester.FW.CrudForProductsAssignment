@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.IO;
-using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IService;
+using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IServices;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
-using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepository;
-using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Service;
+using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
+using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Services;
 using Moq;
 using Xunit;
 
@@ -91,11 +91,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.ServiceT
                 Id = 4,
                 Name = "Product4"
             };
-            _productRepositoryMock.Setup(repository => repository.Create(product))
+            _productRepositoryMock.Setup(repository => repository.CreateProduct(product))
                 .Returns(product);
             
             // Act
-            var actual = _productService.Add(product);
+            var actual = _productService.CreateProduct(product);
             
             // Assert
             Assert.Equal(product,actual);
@@ -106,10 +106,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.ServiceT
         public void ProductService_GetAll_NoParameter_ReturnListOfProducts()
         {
             // Arrange
-            _productRepositoryMock.Setup(repository => repository.ReadAll())
+            _productRepositoryMock.Setup(repository => repository.GetProducts())
                 .Returns(_products);
             // Act
-            var actual = _productService.GetAll();
+            var actual = _productService.GetProducts();
             // Assert
             Assert.Equal(_products,actual);
         }
@@ -122,10 +122,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.ServiceT
         {
             // Arrange
             var find = _products.Find(product => product.Id == id);
-            _productRepositoryMock.Setup(repository => repository.ReadById(id))
+            _productRepositoryMock.Setup(repository => repository.GetProductById(id))
                 .Returns(find);
             // Act
-            var actual = _productService.GetById(id);
+            var actual = _productService.GetProductById(id);
             // Assert
             Assert.Equal(find,actual);
             
@@ -144,10 +144,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.ServiceT
                 Name = name
             };
             
-            _productRepositoryMock.Setup(repository => repository.Update(changeProduct))
+            _productRepositoryMock.Setup(repository => repository.UpdateProduct(changeProduct))
                 .Returns(changeProduct);
             // Act
-            var actual = _productService.Modify(changeProduct);
+            var actual = _productService.UpdateProduct(changeProduct);
             // Assert
             Assert.Equal(changeProduct,actual);
             
@@ -162,12 +162,12 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test.ServiceT
                 Id = 1,
                 Name = "name"
             };
-            _productRepositoryMock.Setup(repository => repository.ReadById(product.Id))
+            _productRepositoryMock.Setup(repository => repository.GetProductById(product.Id))
                 .Returns(product);
-            _productRepositoryMock.Setup(repository => repository.Delete(product))
+            _productRepositoryMock.Setup(repository => repository.RemoveProduct(product.Id))
                 .Returns(product);
             // Act
-            var actual = _productService.Delete(product.Id);
+            var actual = _productService.RemoveProduct(product.Id);
             // Assert
             Assert.Equal(product,actual);
         }

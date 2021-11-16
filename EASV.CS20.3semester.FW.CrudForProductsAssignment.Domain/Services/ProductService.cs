@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
+using System.IO;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IServices;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
@@ -11,7 +13,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Services
 
         public ProductService(IProductRepository repo)
         {
-            _repo = repo;
+            _repo = repo ?? throw new InvalidDataException("The Repository can not be null");
         }
 
         public List<Product> GetProducts()

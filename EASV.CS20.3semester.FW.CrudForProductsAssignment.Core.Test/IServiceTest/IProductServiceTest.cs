@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IService;
+using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IServices;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
 using Moq;
 using Xunit;
@@ -32,12 +32,12 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
         {
             // Arrange
             var mock = new Mock<IProductService>();
-            mock.Setup(service => service.GetAll())
+            mock.Setup(service => service.GetProducts())
                 .Returns(new List<Product>());
             var productService = mock.Object;
 
             // Act
-            var actual = productService.GetAll();
+            var actual = productService.GetProducts();
             var expected = new List<Product>();
 
             // Assert
@@ -55,13 +55,13 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
             };
             
             var mock = new Mock<IProductService>();
-            mock.Setup(service => service.GetById(1))
+            mock.Setup(service => service.GetProductById(1))
                 .Returns(product);
             
             var productService = mock.Object;
             
             // Act
-            var actual = productService.GetById(1);
+            var actual = productService.GetProductById(1);
 
             // Assert
             Assert.Equal(product,actual);
@@ -84,11 +84,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
             
             var mock = new Mock<IProductService>();
             var productService = mock.Object;
-            mock.Setup(service => service.Add(product))
+            mock.Setup(service => service.CreateProduct(product))
                 .Returns(product);
             
             // Act
-            var actual = productService.Add(product);
+            var actual = productService.CreateProduct(product);
 
             // Assert
             Assert.Equal(product,actual);
@@ -110,11 +110,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
             
             var mock = new Mock<IProductService>();
             var productService = mock.Object;
-            mock.Setup(service => service.Delete(1))
+            mock.Setup(service => service.RemoveProduct(1))
                 .Returns(product);
             
             // Act
-            var actual = productService.Delete(1);
+            var actual = productService.RemoveProduct(1);
             
             // Assert
             Assert.Equal(product,actual);
@@ -136,11 +136,11 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
 
             var mock = new Mock<IProductService>();
             var productService = mock.Object;
-            mock.Setup(service => service.Modify(product))
+            mock.Setup(service => service.UpdateProduct(product))
                 .Returns(product);
             
             // Act
-            var actual = productService.Modify(product);
+            var actual = productService.UpdateProduct(product);
             
             // Assert
             Assert.Equal(product,actual);

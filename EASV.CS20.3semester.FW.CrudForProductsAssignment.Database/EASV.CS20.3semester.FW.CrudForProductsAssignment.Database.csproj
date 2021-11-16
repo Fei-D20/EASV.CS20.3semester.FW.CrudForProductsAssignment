@@ -5,4 +5,13 @@
         <RootNamespace>EASV.CS20._3semester.FW.CrudForProductsAssignment.DataBase</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.csproj" />
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

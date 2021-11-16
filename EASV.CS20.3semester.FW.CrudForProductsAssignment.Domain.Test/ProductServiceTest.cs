@@ -35,7 +35,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Test
         {
             var exception = Assert.Throws<InvalidDataException>(
                 () => new ProductService(null));
-            Assert.Equal("ProductRepository cannot be null", exception.Message);
+            Assert.Equal("The Repository can not be null", exception.Message);
         }
 
         [Fact]

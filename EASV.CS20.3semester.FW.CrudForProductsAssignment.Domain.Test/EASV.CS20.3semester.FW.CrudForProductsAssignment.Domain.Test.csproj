@@ -24,7 +24,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core\EASV.CS20.3semester.FW.CrudForProductsAssignment.Core.csproj" />
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database.csproj" />
       <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain\EASV.CS20.3semester.FW.CrudForProductsAssignment.Domain.csproj" />
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.WebApi\EASV.CS20.3semester.FW.CrudForProductsAssignment.WebApi.csproj" />
     </ItemGroup>
 
 </Project>

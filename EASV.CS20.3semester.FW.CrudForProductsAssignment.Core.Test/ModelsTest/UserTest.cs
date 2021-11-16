@@ -1,7 +1,4 @@
 #nullable enable
-using System;
-using System.IO;
-using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IService;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
 using Xunit;
 
