@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
 using Xunit;
 
@@ -33,11 +31,12 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.ModelsTest
         public void Product_Id_SetId_GetId()
         {
             // Arrange
-            var product = new Product();
-            
-            // Act
-            product.Id = 1;
-            
+            var product = new Product
+            {
+                // Act
+                Id = 1
+            };
+
             // Assert
             Assert.Equal(1,product.Id);
         }
@@ -63,11 +62,12 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.ModelsTest
         public void Product_Name_SetName_GetName()
         {
             // Arrange
-            var product = new Product();
-            
-            // Act
-            product.Name = "Name1";
-            
+            var product = new Product
+            {
+                // Act
+                Name = "Name1"
+            };
+
             // Assert
             Assert.Equal("Name1",product.Name);
         }
