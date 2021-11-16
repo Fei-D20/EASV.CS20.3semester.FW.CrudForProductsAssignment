@@ -69,8 +69,9 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 var ctx = scope.ServiceProvider.GetService<ApplicationContext>();
-                ctx.Database.EnsureDeleted();
-                ctx.Database.EnsureCreated();
+                //creating db
+                /*ctx.Database.EnsureDeleted();
+                ctx.Database.EnsureCreated();*/
             }
 
             app.UseHttpsRedirection();
