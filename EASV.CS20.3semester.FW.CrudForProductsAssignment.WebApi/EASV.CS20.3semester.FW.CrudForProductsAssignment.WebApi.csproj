@@ -6,11 +6,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database.csproj" />
+      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignmentSecurity\EASV.CS20.3semester.FW.CrudForProductsAssignmentSecurity.csproj" />
     </ItemGroup>
 
 </Project>
