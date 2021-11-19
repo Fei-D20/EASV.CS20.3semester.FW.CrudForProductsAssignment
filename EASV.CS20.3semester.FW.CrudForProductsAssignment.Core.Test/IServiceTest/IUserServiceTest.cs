@@ -8,7 +8,6 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Test.IServiceTe
     public class IUserServiceTest
     {
         #region Interface Avaliable Test
-
         [Fact]
         public void IUserServiceTest_IsAvailable()
         {
