@@ -64,6 +64,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json",
                     "EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi v1"));
+                app.UseCors("product-policy");
             }
             
             using (var scope = app.ApplicationServices.CreateScope())
