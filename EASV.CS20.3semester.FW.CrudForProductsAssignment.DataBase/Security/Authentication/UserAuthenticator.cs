@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Database;
+using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authentication
 {
@@ -13,10 +14,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authenticati
 
     public class UserAuthenticator : IUserAuthenticator
     {
-        private readonly UserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IAuthenticationHelper _authenticationHelper;
 
-        public UserAuthenticator(UserRepository userRepository, IAuthenticationHelper authenticationHelper)
+        public UserAuthenticator(IUserRepository userRepository, IAuthenticationHelper authenticationHelper)
         {
             _userRepository = userRepository;
             _authenticationHelper = authenticationHelper;
