@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IServices;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using SQLitePCL;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers{
     
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _service;
@@ -19,24 +21,34 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers{
         }
 
         [HttpGet]
-        public ActionResult<ProductDto> GetAllProducts()
+        public Product[] GetAllProducts()
         {
-            try
-            {
-                var list = _service.GetProducts();
-                return Ok(new GetProductsDto
-                {
-                    Products = list.Select(product => new ProductDto
-                    {
-                        Id = product.Id,
-                        Name = product.Name
-                    }).ToList()
-                });
-            }
-            catch(Exception e)
-            {
-                return StatusCode(500, "System problems occured");
-            }
+            // her i change the ActionResult<List<ProductDto>> as Product Array to try to let my frontend show all 
+            // product. this is temporary. and i will change it back later.  
+            
+            // try  
+            // {
+            //     var list = _service.GetProducts(); 
+            //     return Ok(new GetProductsDto
+            //     {
+            //         Products = list
+            //             .Select(product => new ProductDto
+            //             {
+            //                 Id = product.Id,
+            //                 Name = product.Name
+            //             })
+            //             .ToList()
+            //     });
+            // }
+            // catch(Exception e)
+            // {
+            //     return StatusCode(500, "System problems occured");
+            // }
+
+            var products = _service.GetProducts()
+                .ToArray();
+
+            return products;
         }
 
         [HttpGet("{id}")]

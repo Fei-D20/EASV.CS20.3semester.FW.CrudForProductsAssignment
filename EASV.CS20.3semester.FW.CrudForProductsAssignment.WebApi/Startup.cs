@@ -47,6 +47,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
             }
 
             services.AddHttpClient();
+            
             //Add JWT authentication
             //The settings below match the settings when we create our TOKEN:
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -111,24 +112,39 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ApplicationContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                app.UseSwaggerUI(
+                    c => c.SwaggerEndpoint(
+                        "/swagger/v1/swagger.json",
                     "EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi v1"));
+                
                 app.UseCors("product-policy");
+
+                // this part we use the DI for get the database and ensure delete and create a new one.
+                // in here do this because we can just use the development mode
+                // but we will use seeder which we can just create for our self
+                //context.Database.EnsureDeleted();
+                //context.Database.EnsureCreated();
+                var dbSeeder = new DbSeeder(context);
+                dbSeeder.SeedDevelopment();
             }
+             
+            // here is another way to ensure delete and create new DB.
+            // this is for all user run the application so it is dangerous.
             
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var ctx = scope.ServiceProvider.GetService<ApplicationContext>();
-                //creating db
-                //ctx.Database.EnsureDeleted();
-                //ctx.Database.EnsureCreated();
-            }
+            // using (var scope = app.ApplicationServices.CreateScope())
+            // {
+            //     var ctx = scope.ServiceProvider.GetService<ApplicationContext>();
+            //     //creating db
+            //     ctx.Database.EnsureDeleted();
+            //     ctx.Database.EnsureCreated();
+            // }
 
             app.UseHttpsRedirection();
 
