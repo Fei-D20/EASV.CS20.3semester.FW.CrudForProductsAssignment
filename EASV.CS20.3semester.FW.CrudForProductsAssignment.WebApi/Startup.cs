@@ -63,20 +63,31 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
                     ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
                 };
             });
+            
             var loggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
-            services.AddDbContext<ApplicationContext>(opt => opt.UseLoggerFactory(loggerFactory).UseSqlite("Data source = ProductProject.db"));
+            
+            // adding DB info
+            services.AddDbContext<ApplicationContext>(
+                opt => opt.UseLoggerFactory(loggerFactory)
+                    .UseSqlite("Data source = ProductProject.db"));
+            
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
                     new OpenApiInfo
                         {Title = "EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi", Version = "v1"});
             });
+            
+            // setting up the Dependency Injection
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            
             services.AddScoped<UserAuthConfig>();
+            
             services.AddTransient<IAuthorizableOwnerIdentity, UserResourceOwnerAuthorizationService>();
             services.AddAuthorization(opt =>
             {
@@ -115,8 +126,8 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
             {
                 var ctx = scope.ServiceProvider.GetService<ApplicationContext>();
                 //creating db
-                ctx.Database.EnsureDeleted();
-                ctx.Database.EnsureCreated();
+                //ctx.Database.EnsureDeleted();
+                //ctx.Database.EnsureCreated();
             }
 
             app.UseHttpsRedirection();

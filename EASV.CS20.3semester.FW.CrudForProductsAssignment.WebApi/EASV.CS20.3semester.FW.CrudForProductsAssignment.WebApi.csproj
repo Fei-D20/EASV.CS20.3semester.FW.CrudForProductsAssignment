@@ -14,7 +14,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database\EASV.CS20.3semester.FW.CrudForProductsAssignment.Database.csproj" />
-      <ProjectReference Include="..\EASV.CS20.3semester.FW.CrudForProductsAssignmentSecurity\EASV.CS20.3semester.FW.CrudForProductsAssignmentSecurity.csproj" />
     </ItemGroup>
 
 </Project>
