@@ -1,7 +1,21 @@
 <h1>Products</h1>
 
-<ul *ngIf="products">
+
+<ul *ngIf="products$ | async as products else loading">
+<!--  'async' means the html will auto listening the reply which is observable object one time and then stop-->
+<!--  'as products' will convert the observable to products-->
+<!--  'else loading' means before the system async just show loading letter until finish async as products-->
   <li *ngFor="let product of products">
-    No: {{product.id}} , Name: {{product.name}}
+    {{product.id}} - {{product.name}}
   </li>
 </ul>
+
+<!--this is template for show up the loading letter-->
+<ng-template #loading>
+  <p *ngIf="!error else errorTemp">  .... loading ...</p>
+  <ng-template #errorTemp>{{error?.message}}</ng-template>
+<!--  {{error | json}}  convert the error info as json object so it can be show-->
+</ng-template>
+
+<!--Error handling -->
+

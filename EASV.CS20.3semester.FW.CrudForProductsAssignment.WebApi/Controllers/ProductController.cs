@@ -20,35 +20,46 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers{
             _service = productService;
         }
 
+        // [HttpGet]
+        // public ActionResult<List<ProductDto>> GetAllProducts()
+        // {
+        //     // her i change the ActionResult<List<ProductDto>> as Product Array to try to let my frontend show all 
+        //     // product. this is temporary. and i will change it back later.  
+        //     
+        //     try  
+        //     {
+        //         var list = _service.GetProducts(); 
+        //         return Ok(new GetProductsDto
+        //         {
+        //             Products = list
+        //                 .Select(product => new ProductDto
+        //                 {
+        //                     Id = product.Id,
+        //                     Name = product.Name
+        //                 })
+        //                 .ToList()
+        //         });
+        //     }
+        //     catch(Exception e)
+        //     {
+        //         return StatusCode(500, "System problems occured");
+        //     }
+        // }
+
         [HttpGet]
-        public Product[] GetAllProducts()
+        public ProductDto[] GetAllProduct_ReturnArray()
         {
-            // her i change the ActionResult<List<ProductDto>> as Product Array to try to let my frontend show all 
-            // product. this is temporary. and i will change it back later.  
-            
-            // try  
-            // {
-            //     var list = _service.GetProducts(); 
-            //     return Ok(new GetProductsDto
-            //     {
-            //         Products = list
-            //             .Select(product => new ProductDto
-            //             {
-            //                 Id = product.Id,
-            //                 Name = product.Name
-            //             })
-            //             .ToList()
-            //     });
-            // }
-            // catch(Exception e)
-            // {
-            //     return StatusCode(500, "System problems occured");
-            // }
-
-            var products = _service.GetProducts()
-                .ToArray();
-
-            return products;
+            var products = _service.GetProducts();
+            var productDtos = new List<ProductDto>();
+            foreach (var product in products)
+            {
+                productDtos.Add(new ProductDto()
+                {
+                    Id = product.Id,
+                    Name = product.Name
+                });
+            }   
+            return productDtos.ToArray();
         }
 
         [HttpGet("{id}")]
