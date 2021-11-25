@@ -107,7 +107,16 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
                         .AllowAnyMethod()
                         .AllowAnyOrigin();
                 });
+                
+                opt.AddPolicy("Prod.cors", builder =>
+                {
+                    builder
+                        .WithOrigins("https://crudforproduct.firebaseapp.com")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
             });
+            
             services.AddControllers();
         }
 
@@ -136,6 +145,8 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
             }
             else
             {
+                app.UseCors("Prod.cors");
+                // when we out of develop mode then create a new DB
                 new DbSeeder(context).SeedProduction();
             }
              

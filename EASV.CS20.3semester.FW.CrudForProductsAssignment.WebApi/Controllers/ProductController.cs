@@ -42,24 +42,33 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers{
         //     }
         //     catch(Exception e)
         //     {
-        //         return StatusCode(500, "System problems occured");
+        //         
         //     }
         // }
 
         [HttpGet]
-        public ProductDto[] GetAllProduct_ReturnArray()
+        public ActionResult<ProductDto[]> GetAllProduct_ReturnArray()
         {
-            var products = _service.GetProducts();
-            var productDtos = new List<ProductDto>();
-            foreach (var product in products)
+            try
             {
-                productDtos.Add(new ProductDto()
+                var products = _service.GetProducts();
+                var productDtos = new List<ProductDto>();
+                foreach (var product in products)
                 {
-                    Id = product.Id,
-                    Name = product.Name
-                });
-            }   
-            return productDtos.ToArray();
+                    productDtos.Add(new ProductDto()
+                    {
+                        Id = product.Id,
+                        Name = product.Name
+                    });
+                }   
+                return Ok(productDtos.ToArray());
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "System problems occured");
+            }
+            
         }
 
         [HttpGet("{id}")]
