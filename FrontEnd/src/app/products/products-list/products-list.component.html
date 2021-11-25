@@ -5,17 +5,24 @@
 <!--  'async' means the html will auto listening the reply which is observable object one time and then stop-->
 <!--  'as products' will convert the observable to products-->
 <!--  'else loading' means before the system async just show loading letter until finish async as products-->
+  <div *ngIf="products && products.length >0  else noProducts">
   <li *ngFor="let product of products">
     {{product.id}} - {{product.name}}
   </li>
+  </div>
 </ul>
 
 <!--this is template for show up the loading letter-->
 <ng-template #loading>
+  <!--Error handling -->
   <p *ngIf="!error else errorTemp">  .... loading ...</p>
   <ng-template #errorTemp>{{error?.message}}</ng-template>
 <!--  {{error | json}}  convert the error info as json object so it can be show-->
 </ng-template>
 
-<!--Error handling -->
+<ng-template #noProducts>
+  <h5>No products found</h5>
+</ng-template>
+
+
 

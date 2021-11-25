@@ -111,7 +111,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
                 opt.AddPolicy("Prod.cors", builder =>
                 {
                     builder
-                        .WithOrigins("https://crudforproduct.firebaseapp.com")
+                        .WithOrigins(
+                            "https://crudforproduct.firebaseapp.com",
+                            "https://crudforproduct.web.app"
+                            )
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
