@@ -134,6 +134,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
                 var dbSeeder = new DbSeeder(context);
                 dbSeeder.SeedDevelopment();
             }
+            else
+            {
+                new DbSeeder(context).SeedProduction();
+            }
              
             // here is another way to ensure delete and create new DB.
             // this is for all user run the application so it is dangerous.

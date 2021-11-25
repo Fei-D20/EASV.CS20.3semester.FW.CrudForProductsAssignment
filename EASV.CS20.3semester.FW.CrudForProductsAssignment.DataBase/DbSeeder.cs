@@ -21,5 +21,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Database
             _context.Products.Add(new ProductEntity() { Id = 4, Name = "Product004" });
             _context.SaveChanges();
         }
+
+        public void SeedProduction()
+        {
+            _context.Database.EnsureCreated();
+        }
     }
 }
