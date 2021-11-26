@@ -9,31 +9,30 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
     [ApiController]
 
     public class LoginController : ControllerBase
-
     {
-    private readonly IUserAuthenticator _userAuthenticator;
+        private readonly IUserAuthenticator _userAuthenticator;
 
-    public LoginController(IUserAuthenticator userAuthenticator)
-    {
-        _userAuthenticator = userAuthenticator;
-    }
-
-    [AllowAnonymous]
-    [HttpPost]
-    public IActionResult Post([FromBody] LoginInput model)
-    {
-        string userToken;
-        if (_userAuthenticator.Login(model.Username, model.Password, out userToken))
+        public LoginController(IUserAuthenticator userAuthenticator)
         {
-            //Authentication successful
-            return Ok(new
-            {
-                username = model.Username,
-                token = userToken
-            });
+            _userAuthenticator = userAuthenticator;
         }
 
-        return Unauthorized("Unknown username and password combination");
-    }
+        [AllowAnonymous]
+        [HttpPost(nameof(Post))]
+        public IActionResult Post([FromBody] LoginInput model)
+        {
+            string userToken; // where i can get the userToken?
+            if (_userAuthenticator.Login(model.Username, model.Password, out userToken))
+            {
+                //Authentication successful
+                return Ok(new
+                {
+                    username = model.Username,
+                    token = userToken
+                });
+            }
+
+            return Unauthorized("Unknown username and password combination");
+        }
     }
 }

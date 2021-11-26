@@ -1,4 +1,6 @@
-﻿namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Database.Entities
+﻿using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.Models;
+
+namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Database.Entities
 {
     public class UserEntity
     {

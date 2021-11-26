@@ -33,7 +33,7 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
             UserEntity userEntity = new UserEntity
             {
                 Id = user.Id,
-                Name = user.Name
+                Name = user.Name,
             };
             _ctx.Users.Add(userEntity);
             _ctx.SaveChanges();

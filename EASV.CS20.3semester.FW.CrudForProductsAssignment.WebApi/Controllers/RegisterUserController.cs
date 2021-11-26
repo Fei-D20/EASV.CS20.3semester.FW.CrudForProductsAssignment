@@ -5,6 +5,8 @@ using Microsoft.Extensions.Logging;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class RegisterUserController : ControllerBase
     {
         private readonly IUserAuthenticator _userAuthenticator;
@@ -17,6 +19,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
         }
 
         // POST: api/Login
+        [Route(nameof(Post))]
         [HttpPost]
         public IActionResult Post([FromBody] RegisterUser model)
         {
