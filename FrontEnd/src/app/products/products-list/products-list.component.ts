@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductsService} from "../shared/products.service";
 import {ProductDto} from "../shared/product.dto";
-import {Observable, Subscription} from "rxjs";
-import {catchError, delay, take} from "rxjs/operators";
+import {observable, Observable, Subscription} from "rxjs";
+import {catchError, delay, elementAt, filter, find, take} from "rxjs/operators";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-EASV-CS20-FW-Assignment-products-list',
@@ -16,8 +17,10 @@ export class ProductsListComponent implements OnInit{
   products$: Observable<ProductDto[]> | undefined;
   // remove the private for html file can use this field
   error: any;
+  id: number | undefined;
+  product: Observable<ProductDto[]> |undefined;
 
-  constructor(private _productService: ProductsService) { }
+  constructor(private _productService: ProductsService,private http:HttpClient) { }
 
   ngOnInit(): void {
     // this._productService.getAll()
@@ -45,6 +48,14 @@ export class ProductsListComponent implements OnInit{
             throw err;
           })
         )
+  }
+
+  getById(){
+    this.http.get<Observable<ProductDto[]>>("https://localhost:5001/Product/" + this.id)
+      .subscribe(product =>
+      {
+        this.products$ = product
+      })
   }
 }
 

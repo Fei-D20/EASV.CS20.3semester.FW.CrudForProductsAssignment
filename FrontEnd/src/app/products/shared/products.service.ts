@@ -8,6 +8,7 @@ import {environment} from "../../../environments/environment";
   providedIn: 'root'
 })
 export class ProductsService {
+  id: number | undefined;
 
   constructor(private _http: HttpClient) {}
 
