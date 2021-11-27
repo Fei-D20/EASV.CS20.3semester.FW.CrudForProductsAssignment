@@ -23,7 +23,12 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
             var selectQuery = _ctx.Users.Select(userEntity => new User
             {
                 Id = userEntity.Id,
-                Name = userEntity.Name
+                Name = userEntity.Name,
+                Password = userEntity.Password,
+                PasswordHash = userEntity.PasswordHash,
+                PasswordSalt = userEntity.PasswordSalt,
+                Role = userEntity.Role
+                
             });
             return selectQuery.ToList();
         }
@@ -34,6 +39,10 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
             {
                 Id = user.Id,
                 Name = user.Name,
+                Password = user.Password,
+                PasswordHash = user.PasswordHash,
+                PasswordSalt = user.PasswordSalt,
+                Role = user.Role
             };
             _ctx.Users.Add(userEntity);
             _ctx.SaveChanges();
@@ -45,7 +54,11 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
             return _ctx.Users.Select(userEntity => new User
             {
                 Id = userEntity.Id,
-                Name = userEntity.Name
+                Name = userEntity.Name,
+                Password = userEntity.Password,
+                PasswordHash = userEntity.PasswordHash,
+                PasswordSalt = userEntity.PasswordSalt,
+                Role = userEntity.Role
             }).FirstOrDefault(u => u.Id == id);
         }
 
@@ -56,7 +69,11 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
             return new User
             {
                 Id = entity.Id,
-                Name = entity.Name
+                Name = entity.Name,
+                Password = entity.Password,
+                PasswordHash = entity.PasswordHash,
+                PasswordSalt = entity.PasswordSalt,
+                Role = entity.Role
             };
         }
 
@@ -65,7 +82,11 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
             var entity = new UserEntity
             {
                 Id = user.Id,
-                Name = user.Name
+                Name = user.Name,
+                Password = user.Password,
+                PasswordHash = user.PasswordHash,
+                PasswordSalt = user.PasswordSalt,
+                Role = user.Role
             };
             _ctx.Users.Update(entity);
             _ctx.SaveChanges();
