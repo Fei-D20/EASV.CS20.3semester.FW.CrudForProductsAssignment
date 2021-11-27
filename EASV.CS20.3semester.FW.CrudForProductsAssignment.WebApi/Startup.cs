@@ -3,8 +3,6 @@ using EASV.CS20._3semester.FW.CrudForProductsAssignment.Core.IServices;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Database;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.IRepositories;
 using EASV.CS20._3semester.FW.CrudForProductsAssignment.Domain.Services;
-using EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authentication;
-using EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +13,6 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using UserRepository = EASV.CS20._3semester.FW.CrudForProductsAssignment.Database.UserRepository;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
 {
@@ -84,19 +81,9 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi
             // setting up the Dependency Injection
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             
-            services.AddScoped<UserAuthConfig>();
             
-            services.AddTransient<IAuthorizableOwnerIdentity, UserResourceOwnerAuthorizationService>();
-            services.AddAuthorization(opt =>
-            {
-                opt.AddPolicy("OwnerPolicy",
-                    policy => { policy.Requirements.Add(new ResourceOwnerRequirement()); });
-            });
-            services.AddSingleton<IAuthenticationHelper>(new AuthenticationHelper(secretBytes));
-            services.AddTransient<IUserAuthenticator, UserAuthenticator>();
             
             services.AddCors(opt =>
             {

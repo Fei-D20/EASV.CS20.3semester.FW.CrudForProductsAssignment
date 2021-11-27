@@ -10,6 +10,5 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.Database
         }
         
         public virtual DbSet<ProductEntity> Products { get; set; }
-        public virtual DbSet<UserEntity> Users { get; set; }
     }
 }
